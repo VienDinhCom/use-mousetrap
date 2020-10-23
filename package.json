@@ -1,6 +1,6 @@
 {
   "name": "use-mousetrap",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "Vien Dinh",
   "license": "MIT",
   "description": "A simple Mousetrap hook for handling keyboard shortcuts in React",
