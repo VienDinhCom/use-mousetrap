@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import mousetrap, { ExtendedKeyboardEvent } from 'mousetrap';
 
-type Keys = string | string[] | undefined;
+type Keys = string | string[] | null;
 type Action = 'keypress' | 'keydown' | 'keyup';
 type Callback = (event: ExtendedKeyboardEvent, combo: string) => unknown;
 
@@ -10,7 +10,7 @@ export function useMousetrap(keys: Keys, callback: Callback, action?: Action) {
   let callbackRef = useRef<Callback>(callback);
 
   useEffect(() => {
-    if (keys !== undefined) {
+    if (keys !== null) {
       mousetrap.bind(
         keys,
         (event, combo) => {
@@ -23,7 +23,7 @@ export function useMousetrap(keys: Keys, callback: Callback, action?: Action) {
     }
 
     return () => {
-      if (keys !== undefined) {
+      if (keys !== null) {
         mousetrap.unbind(keys);
       }
     };
